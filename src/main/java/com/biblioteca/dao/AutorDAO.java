@@ -44,4 +44,9 @@ public void eliminarAutor(Autor autor) {
         em.close();
         return autores;
     }
+    
+    public EntityManagerFactory getEntityManagerFactory() {
+    return emf;
+}
+
 }

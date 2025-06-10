@@ -25,10 +25,17 @@ public class VentanaAutor extends JFrame {
         listaAutores = new JList<>(listModel);
         JScrollPane scrollPane = new JScrollPane(listaAutores);
 
+        JButton btnAgregar = new JButton("Agregar Autor");
+        btnAgregar.addActionListener(e -> {
+            new FormularioAutor(this, autorDAO.getEntityManagerFactory()).setVisible(true);
+            cargarAutores();
+        });
+
         JButton btnEliminar = new JButton("Eliminar Autor");
         btnEliminar.addActionListener(e -> eliminarAutor());
 
         JPanel panelBoton = new JPanel();
+        panelBoton.add(btnAgregar);
         panelBoton.add(btnEliminar);
 
         getContentPane().add(scrollPane, BorderLayout.CENTER);
